@@ -26,16 +26,17 @@ export function addToCart(productId) {
 
     }
   })
+  const productQuantity = Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
+    console.log(productQuantity);
 
-  if(matchingItem) {
-    matchingItem.quantity += 1;
-  }else {
-    cart.push({
-      productId: productId,
-      quantity: 1
-  })
-  }
-
+    if(matchingItem) {
+      matchingItem.quantity += productQuantity;
+    }else {
+      cart.push({
+        productId: productId,
+        quantity: productQuantity
+      })
+    }
   saveToStorage();
 }
 
