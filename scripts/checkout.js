@@ -36,7 +36,7 @@ cart.forEach((cartItem) => {
           </div>
           <div class="product-quantity">
             <span>
-              Quantity: <span class="quantity-label">${cartItem.quantity}</span>
+              Quantity: <span class="quantity-label js-quantity-label-${matchingProduct.id}">${cartItem.quantity}</span>
             </span>
             <span class="update-quantity-link link-primary js-update-quantity-link" 
             data-product-id="${matchingProduct.id}">
@@ -115,13 +115,16 @@ document.querySelectorAll('.js-delete-link').forEach((link) => {
 
     container.remove();
 
-    document.querySelector('.js-return-to-home-link')
-      .innerHTML = `${calculateCartQuantity()} items`;
+    updateCartQuantity();
   })
 })
 
-document.querySelector('.js-return-to-home-link')
-  .innerHTML = `${calculateCartQuantity()} items`;
+function updateCartQuantity () {
+  document.querySelector('.js-return-to-home-link')
+    .innerHTML = `${calculateCartQuantity()} items`;
+}
+
+updateCartQuantity();
 
 
 document.querySelectorAll('.js-update-quantity-link').forEach((updatelink) => {
@@ -132,7 +135,7 @@ document.querySelectorAll('.js-update-quantity-link').forEach((updatelink) => {
 
     const container = document.querySelector(`.js-cart-item-container-${productId}`);
 
-    container.classList.add('.is-editing-quantity');
+    container.classList.add('is-editing-quantity');
   });
 });
 
@@ -150,6 +153,11 @@ document.querySelectorAll('.js-save-link').forEach((link) => {
 
     updateQuantity(productId, newQuantity);
 
+    const quantityLabel = document.querySelector(`.js-quantity-label-${productId}`);
+
+    quantityLabel.innerHTML = newQuantity;
+
+    updateCartQuantity();
   })
 
 })
