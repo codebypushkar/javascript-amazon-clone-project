@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+
+    <script type="module">
+      import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+
+      const today = dayjs();
+      console.log(today.format('MMM, D'));//15a
+
+      console.log((today.add(1,'month').format('MMM, D')));//15b
+
+      console.log((today.subtract(1, 'month').format('MMM, D')));//15c
+
+      console.log(today.format('dddd'));//15d
+
+      
+
+    </script>
+  </body>
+</html>
