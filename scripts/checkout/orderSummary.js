@@ -184,7 +184,3 @@ document.querySelectorAll('.js-save-link')
     });
   });
 }
-
-function updateCartQuantity() {
-  document.querySelector('.js-return-to-home-link').innerHTML = `${calculateCartQuantity()} items`;
-}
