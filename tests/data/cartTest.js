@@ -157,5 +157,14 @@ describe('test suite: updateDeliveryOption', () => {
     expect(cart[1].deliveryOptionId).toEqual('2');
     expect(localStorage.setItem).toHaveBeenCalledTimes(0);
 
+  });
+
+  it('does nothing if delivery option does not exist', () => {
+    updateDeliveryOption('e43638ce-6aa0-4b85-b27f-e1d07eb678c6', '6')
+
+    expect(cart[0].productId).toEqual('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
+    expect(cart[0].deliveryOptionId).toEqual('1');
+    expect(cart.length).toEqual(2);
+    expect(localStorage.setItem).toHaveBeenCalledTimes(0);
   })
 })

@@ -1,4 +1,5 @@
 import { calculateCartQuantity } from '../scripts/utils/calculateCartQuantity.js';
+import { validDeliveryOption } from './deliveryOptions.js';
 
 export let cart;
 
@@ -76,6 +77,9 @@ export function updateDeliveryOption(productId, deliveryOptionId) {
   });
 
   if(!matchingItem){
+    return;
+  }
+  if(!validDeliveryOption(deliveryOptionId)) {
     return;
   }
   
