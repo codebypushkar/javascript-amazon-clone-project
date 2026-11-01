@@ -26,8 +26,6 @@ export function getDeliveryOption(deliveryOptionId) {
   return deliveryOption || deliveryOptions[0];
 }
 
-<<<<<<< HEAD
-=======
 export function validDeliveryOption(deliveryOptionId){
   let found =false;
 
@@ -40,7 +38,6 @@ export function validDeliveryOption(deliveryOptionId){
   return found;
 }
 
->>>>>>> main
 function isWeekend(date) {
   const dayOfWeek = date.format('dddd');
   return dayOfWeek === 'Saturday' || dayOfWeek === 'Sunday';
