@@ -39,8 +39,7 @@ export function addToCart(productId, productQuantity = 1) {
       matchingItem = cartItem;
     }
   })
-  productQuantity = Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
-    console.log(productQuantity);
+  
 
     if(matchingItem) {
       matchingItem.quantity += productQuantity;
